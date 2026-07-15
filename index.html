@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth light">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bite Boulevard | Exceptional Dining</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#994127", // Terracotta
+                        "primary-dark": "#C05E42",
+                        background: "#faf9f6",
+                        "background-dark": "#131313",
+                        surface: "#ffffff",
+                        "surface-dark": "#1E1E1E",
+                        outline: "#89726c",
+                        "on-surface-variant": "#56423d",
+                        "on-surface-dark": "#e5e2e1"
+                    },
+                    fontFamily: {
+                        display: ["Libre Caslon Text", "serif"],
+                        sans: ["DM Sans", "sans-serif"],
+                        work: ["Work Sans", "sans-serif"]
+                    },
+                    spacing: {
+                        'container-max': '1200px',
+                        'gutter': '24px'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+        .nav-active { color: #994127; border-bottom: 2px solid #994127; }
+        .dark .nav-active { color: #ffb5a0; border-bottom: 2px solid #ffb5a0; }
+        
+        /* Smooth scale for bento items */
+        .bento-card img { transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+        .bento-card:hover img { transform: scale(1.05); }
+        
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #994127; border-radius: 10px; }
+    </style>
+</head>
+
+<body class="bg-background dark:bg-background-dark text-on-surface-variant dark:text-on-surface-dark font-sans antialiased transition-colors duration-300">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-background/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-black/5 dark:border-white/10 transition-all duration-300">
+        <div class="max-w-container-max mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+                <span class="material-symbols-outlined text-primary dark:text-primary-dark text-3xl">restaurant_menu</span>
+                <span class="font-display text-2xl font-bold tracking-tight text-black dark:text-white uppercase md:block hidden">Bite Boulevard</span>
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 font-medium text-sm tracking-wide uppercase">
+                <button onclick="navigateTo('home')" class="nav-link hover:text-primary transition-colors" data-page="home">Home</button>
+                <button onclick="navigateTo('menu')" class="nav-link hover:text-primary transition-colors" data-page="menu">Menu</button>
+                <button onclick="navigateTo('book')" class="nav-link hover:text-primary transition-colors" data-page="book">Reservations</button>
+                <button onclick="navigateTo('orders')" class="nav-link hover:text-primary transition-colors" data-page="orders">Orders</button>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <button onclick="toggleTheme()" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                    <span class="material-symbols-outlined dark:hidden">dark_mode</span>
+                    <span class="material-symbols-outlined hidden dark:block text-yellow-400">light_mode</span>
+                </button>
+                <button onclick="navigateTo('book')" class="bg-primary dark:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-bold hover:opacity-90 transition-all shadow-lg shadow-primary/20">
+                    Book a Table
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="pt-20 pb-24 md:pb-0">
+
+        <!-- HOME PAGE -->
+        <section id="home" class="page-section active">
+            <!-- Hero -->
+            <div class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjsr40Xhp9eLLIJtAl8aDZDKjB3Pnn3DF-Nwmo_c4fNqLz_KarYlNqfcldcVfZYdqhhNdJ4wbjlFoUpRZNTE7bj_-F_9Ex-jCI34udLdVpP1LEUikcjytg7wqYcKGvj01isJPbGNHIiikTOxxUTauG4SMxgCk6hx0dsJn-t_83WhoSeY9du3Lhjr7cnWOa-VInkSJ27BOv5XdxgVQUlnlianrToGYYTMFQV2obAQ1xb3Sz7MT2Nc_M" 
+                         class="w-full h-full object-cover scale-105" alt="Hero Dish">
+                    <div class="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
+                </div>
+                <div class="relative z-10 text-center px-6">
+                    <h1 class="font-display text-5xl md:text-7xl text-white mb-6 max-w-4xl mx-auto leading-tight">A Symphony of Flavor in Every Bite</h1>
+                    <p class="text-white/90 text-lg md:text-xl max-w-xl mx-auto mb-10 font-light">Experience effortless elegance and culinary sophistication where rustic traditions meet modern gastronomy.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="navigateTo('menu')" class="bg-primary text-white px-10 py-4 rounded-xl font-bold hover:translate-y-[-2px] transition-all">Explore Menu</button>
+                        <button onclick="navigateTo('book')" class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-10 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">Reserve Table</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chefs Bento Section -->
+            <div class="max-w-container-max mx-auto py-24 px-6">
+                <h2 class="font-display text-4xl text-center mb-16 dark:text-white">Our Culinary Masters</h2>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[350px]">
+                    <div class="md:col-span-8 md:row-span-2 bento-card relative rounded-3xl overflow-hidden group">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvhilInitidwVirK0k9SNz9NycfKO6jjCv349vQ2I7bVTbfA48pDhT3ytBWq5uATbi-b-Ivq08sQnpVvO6EgYYDm9iijAwX5i9g4vhF2yHVCFKlotjYRbinDVPMmOvq-7vPS0uLtwTgxmGso--kKCTwaVDWdj5-BMECddGoAojWvbUCN-MrnEY3PyvGqzO9noEnjtL46YESla7zq_v2QkTLsptjmdCHQAreybRf_KuvPP3_5veaBdm" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 p-10">
+                            <span class="text-primary-dark font-bold uppercase tracking-widest text-xs">Executive Chef</span>
+                            <h3 class="text-white text-3xl font-display mt-2">Marcus Vance</h3>
+                            <p class="text-white/80 mt-4 max-w-md">20 years in Michelin-starred kitchens, bringing a philosophy of refined simplicity to every plate.</p>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 bento-card relative rounded-3xl overflow-hidden group">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGOJpZphYU04fyy4Gfi0JYAEzCc3oB6vcOkKgbuuTO4hNWoa3-M46XuSbiDuMH6dQIW1XihnjjwbzlAWDf228zNPqEXxxfh7z9lo7fHPeNH7FsZ3LPpU8mhZxiVw0Qq9oBSHc-6iKC1QXalvQYPTyyZyFVRaqJ10gPr5g9geJ_cSlvL1ZRExnZsEoBQcQCY_H38A4C7m0n3xAWnbWLoVaHfuLmlJEGZwL4B5puCcVciGjKVsAmltv6" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        <div class="absolute bottom-0 p-6 text-white">
+                            <p class="text-xs uppercase font-bold">Sous Chef</p>
+                            <h4 class="text-xl">Elena Rostova</h4>
+                        </div>
+                    </div>
+                    <div class="md:col-span-4 bento-card bg-surface dark:bg-surface-dark p-8 rounded-3xl flex flex-col justify-center items-center text-center border border-black/5 dark:border-white/10">
+                        <div class="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-primary">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmJEt9ezo-tMmGGAj1tMeE2vMC_p_EFiTDaF9_jUcIs1xSducp00qIXl3Bt_Nwm0svpTI8-xcs-AL3wOKXEncaDKepmxuXXP8yeh_tIHviqfjP-2ev4QE7Bu3BAa4xyDPI5LFW-97sXwM4BhjxkU5eJmm8333UEOJpGpJQvp19yjmQHfMczN_itO0jbz_LOhUYtulc0cF5ZZ6NDP2vYOWlraRRqeH58_6KUjKcqbbh_hAa9e0v8A8Q" class="w-full h-full object-cover">
+                        </div>
+                        <h4 class="text-xl font-bold dark:text-white">Julian Hayes</h4>
+                        <p class="text-primary text-sm font-bold uppercase mb-2">Master Patissier</p>
+                        <p class="text-sm dark:text-white/60">Crafting architectural desserts that balance sweetness with unexpected savory notes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU PAGE -->
+        <section id="menu" class="page-section">
+            <div class="max-w-container-max mx-auto py-16 px-6">
+                <div class="text-center mb-16">
+                    <h1 class="font-display text-5xl dark:text-white mb-4">Our Culinary Selection</h1>
+                    <p class="max-w-2xl mx-auto text-lg opacity-80">A curated exploration of flavors, using seasonal ingredients and refined techniques.</p>
+                </div>
+
+                <!-- Bento Popular Dishes -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+                    <div class="md:col-span-2 relative group rounded-3xl overflow-hidden h-[450px]">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlp6ieLNKj57vPPTtlOAVP-IdXtln6BEXBvUbQEoJTJxnRKlMZI-0S_rbrk2ht2jQMzzTxx4dL0KPeiRKkLiqNtLYYgyvfhhe_n1aH7t3y5rkShc0aMMFJsqLY8XyNSao0bk1hEvhueP4EqkfnZpKKEoPI353Xn-KlQ38mHCbj-lj4zla2V5ofzaVF7FVPDM2JLGVoMFtv8QBaQNAdQrkoG2He8LIrGHXhBp0sYbQAH-3h1FtoYmc-" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end">
+                            <div>
+                                <span class="bg-primary/20 backdrop-blur text-primary-dark px-4 py-1 rounded-full text-xs font-bold uppercase mb-2 inline-block">Chef's Signature</span>
+                                <h3 class="text-white text-3xl font-display">Truffle Infused Ribeye</h3>
+                                <p class="text-white/70 text-sm mt-2 max-w-md">Prime cut ribeye, seared and finished with black truffle butter.</p>
+                            </div>
+                            <span class="text-white text-3xl font-display">$48</span>
+                        </div>
+                    </div>
+                    <div class="relative group rounded-3xl overflow-hidden h-[450px]">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3e0V24LuuPUdNW0EoaF-zKDQtYQEUbtYo5n0Qhwfjdo4XjZ_zHgfu7ii0ZINRfqTsJ7bHlyeMZKsImgpodQ_2TM7FP3w0Kc0UayGUq1SQhgX5wLS9gV8OZ-jNYPN0kZaY2OjspQu9XU-UcEBNTvd7NP293h4to0CAWV-RHR1IvMNazcyq_hsEkPLz--jhq7aofWngqv9ieKTR4VlIrf1JXd006PkMTsqMUwca7lWQLEgsNbnPnwAR" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-0 p-8 text-white">
+                            <h3 class="text-2xl font-display">Heirloom Burrata</h3>
+                            <p class="text-white/70 text-sm mt-1">$22</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full List -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                    <div class="flex items-center gap-6 p-4 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 transition-all cursor-pointer group">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuALcTYawG9Au2Ph1NiLcm2E9T__zQ1wa_QZTmVFf2-e114-Nprd1QLrT7arn2dtlf5lGPeaXys5WsmG-vlRRI7K6Y1DF8hl2tuE9Mfm8IAB2tNM9aPQJzbU4a-Lwsdo-O1BIkFlEC9yLmfU3qvLH_rR-suPkD0hUmkYo5cWOvWDT54MpQkW46MlEDAjXrqt6C3kuoy_BXhf9LfIBS-b5Jj71eO5pA6orOdnv8UtzPna3ON2k0bqY8Zx" class="w-24 h-24 rounded-xl object-cover group-hover:rotate-2 transition-transform">
+                        <div class="flex-grow">
+                            <div class="flex justify-between font-display text-xl dark:text-white">
+                                <span>Saffron Risotto</span>
+                                <span class="text-primary">$28</span>
+                            </div>
+                            <p class="text-sm opacity-60 mt-1 italic">Carnaroli rice, saffron threads, aged parmesan, micro greens.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6 p-4 rounded-2xl hover:bg-black/5 dark:hover:bg-white/5 transition-all cursor-pointer group">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr8XOXXwFuzJoV4z2h2tXASS99XYiqMZfdIZKjDLu2aIYCJauCIaSMlIngwvTUh7OSODTst77cGmlG6PYc6A3sLKruPivWqpq_7i9-tfJwP0zoRis3XiYppD6HXqlUjCelw7lWq6m9DkWqfyQY7V-FmLWatdnpdXkU-_OKqS-XxvPgIvVsVYxzscTQMjLr-MMJ0TKce6QAyXDoltLlcSKhGtNMxVZJk9o5Y5HI2D0R4dW2dgxMYMvH" class="w-24 h-24 rounded-xl object-cover group-hover:rotate-2 transition-transform">
+                        <div class="flex-grow">
+                            <div class="flex justify-between font-display text-xl dark:text-white">
+                                <span>Roasted Duck Breast</span>
+                                <span class="text-primary">$36</span>
+                            </div>
+                            <p class="text-sm opacity-60 mt-1 italic">Spiced honey glaze, parsnip purée, sour cherry reduction.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BOOKING PAGE -->
+        <section id="book" class="page-section">
+            <div class="max-w-container-max mx-auto py-16 px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 bg-surface dark:bg-surface-dark p-8 md:p-12 rounded-[32px] shadow-2xl border border-black/5 dark:border-white/10">
+                    <h1 class="font-display text-5xl dark:text-white mb-6">Reserve Your Table</h1>
+                    <p class="text-lg opacity-70 mb-10">Join us for an unforgettable experience. Secure your spot at Bite Boulevard today.</p>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Date</label>
+                                <input type="date" class="w-full bg-black/5 dark:bg-white/5 border-none rounded-xl p-4 focus:ring-2 focus:ring-primary dark:text-white">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Time</label>
+                                <select class="w-full bg-black/5 dark:bg-white/5 border-none rounded-xl p-4 focus:ring-2 focus:ring-primary dark:text-white">
+                                    <option>7:00 PM</option>
+                                    <option>7:30 PM</option>
+                                    <option>8:00 PM</option>
+                                    <option>8:30 PM</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-widest text-primary mb-2">Number of Guests</label>
+                            <div class="flex gap-4">
+                                <label class="flex-1 text-center py-3 border border-primary/30 rounded-xl cursor-pointer hover:bg-primary hover:text-white transition-colors"><input type="radio" name="guests" class="hidden"> 2</label>
+                                <label class="flex-1 text-center py-3 border border-primary/30 rounded-xl cursor-pointer hover:bg-primary hover:text-white transition-colors"><input type="radio" name="guests" class="hidden"> 4</label>
+                                <label class="flex-1 text-center py-3 border border-primary/30 rounded-xl cursor-pointer hover:bg-primary hover:text-white transition-colors"><input type="radio" name="guests" class="hidden"> 6+</label>
+                            </div>
+                        </div>
+                        <button type="button" onclick="alert('Table Reserved Successfully!')" class="w-full bg-primary text-white py-5 rounded-xl font-bold text-lg hover:opacity-90 transition-all shadow-xl shadow-primary/30">Confirm Reservation</button>
+                    </form>
+                </div>
+                <div class="lg:col-span-5 hidden lg:block h-full min-h-[600px] rounded-[32px] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU7suOdmyCCY2kw4RtFqkNEh11b1SNH9eAGjgmchIfpwWY2vRiGPdI95DmtyslkAdILP03womJ_2WLATfSnvFhWQ1WaF71lz_1m7Llv2lfuhu3MG0h3K5FDsqAuc7MSPtprOvKEd1qBBasko2wdv04N_NySO26Tp4OXdNxYO6NxXsgm_GOqCbplt_rPk52UGL_SZoM9Pf8RRRWld40RqVZtrDCdKn80KuZf45m2hi1etNjPQcYC4lU" 
+                         class="w-full h-full object-cover" alt="Atmosphere">
+                </div>
+            </div>
+        </section>
+
+        <!-- ORDERS PAGE -->
+        <section id="orders" class="page-section">
+            <div class="max-w-container-max mx-auto py-16 px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div>
+                        <h1 class="font-display text-5xl dark:text-white mb-2">Order History</h1>
+                        <p class="opacity-60 italic">Review your past culinary journeys.</p>
+                    </div>
+                    <div class="bg-primary/10 px-6 py-2 rounded-full border border-primary/20">
+                        <span class="text-primary font-bold">125 Points Earned</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Order 1 -->
+                    <div class="bg-surface dark:bg-surface-dark p-8 rounded-3xl border border-black/5 dark:border-white/10 group hover:shadow-xl transition-all">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <p class="text-xs font-bold uppercase tracki
