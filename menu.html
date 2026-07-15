@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Menu - Bite Boulevard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text&family=DM+Sans&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" rel="stylesheet"/>
 </head>
-<body class="bg-[#faf9f6] p-6">
-    <nav class="mb-12"><a href="index.html" class="text-[#994127]">← Back to Home</a></nav>
-    <h1 class="font-['Libre_Caslon_Text'] text-4xl mb-8 text-center">Our Menu</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-        <div class="bg-white p-6 rounded-2xl shadow-sm">
-            <h3 class="text-xl font-bold">Truffle Infused Ribeye</h3>
-            <p class="text-gray-600">Prime cut ribeye finished with black truffle butter.</p>
-            <span class="text-[#994127] font-bold">$48</span>
+<body class="bg-[#faf9f6] text-[#1a1c1a]">
+    <nav class="p-6 max-w-7xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 text-[#994127] font-bold"><span class="material-symbols-outlined">arrow_back</span> Home</a>
+        <h1 class="text-2xl font-['Libre_Caslon_Text']">Our Culinary Offerings</h1>
+        <a href="book.html" class="bg-[#994127] text-white px-4 py-2 rounded-xl text-sm">Book Now</a>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="text-3xl font-['Libre_Caslon_Text'] mb-8">Popular Dishes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Large Feature -->
+            <article class="md:col-span-2 relative h-[400px] rounded-3xl overflow-hidden group shadow-lg">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlp6ieLNKj57vPPTtlOAVP-IdXtln6BEXBvUbQEoJTJxnRKlMZI-0S_rbrk2ht2jQMzzTxx4dL0KPeiRKkLiqNtLYYgyvfhhe_n1aH7t3y5rkShc0aMMFJsqLY8XyNSao0bk1hEvhueP4EqkfnZpKKEoPI353Xn-KlQ38mHCbj-lj4zla2V5ofzaVF7FVPDM2JLGVoMFtv8QBaQNAdQrkoG2He8LIrGHXhBp0sYbQAH-3h1FtoYmc-" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 p-8 text-white bg-gradient-to-t from-black w-full">
+                    <h3 class="text-2xl font-bold">Truffle Infused Ribeye</h3>
+                    <p class="text-gray-300">$48</p>
+                </div>
+            </article>
+            <!-- Small Feature -->
+            <article class="relative h-[400px] rounded-3xl overflow-hidden shadow-lg">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3e0V24LuuPUdNW0EoaF-zKDQtYQEUbtYo5n0Qhwfjdo4XjZ_zHgfu7ii0ZINRfqTsJ7bHlyeMZKsImgpodQ_2TM7FP3w0Kc0UayGUq1SQhgX5wLS9gV8OZ-jNYPN0kZaY2OjspQu9XU-UcEBNTvd7NP293h4to0CAWV-RHR1IvMNazcyq_hsEkPLz--jhq7aofWngqv9ieKTR4VlIrf1JXd006PkMTsqMUwca7lWQLEgsNbnPnwAR" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 p-8 text-white bg-gradient-to-t from-black w-full">
+                    <h3 class="text-xl font-bold">Heirloom Burrata</h3>
+                    <p class="text-gray-300">$22</p>
+                </div>
+            </article>
         </div>
-        <div class="bg-white p-6 rounded-2xl shadow-sm">
-            <h3 class="text-xl font-bold">Heirloom Burrata</h3>
-            <p class="text-gray-600">Fresh burrata, organic heirlooms, aged balsamic.</p>
-            <span class="text-[#994127] font-bold">$22</span>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
