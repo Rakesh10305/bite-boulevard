@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Contact Us - Bite Boulevard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#994127", background: "#faf9f6" }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#faf9f6] text-[#1a1c1a] font-['DM_Sans'] antialiased">
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm h-20 flex items-center px-6">
+        <div class="max-w-7xl mx-auto w-full flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[#994127]">restaurant_menu</span>
+                <span class="font-['Libre_Caslon_Text'] text-2xl">Bite Boulevard</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="index.html" class="hover:text-[#994127]">Home</a>
+                <a href="menu.html" class="hover:text-[#994127]">Menu</a>
+                <a href="contact.html" class="text-[#994127] font-bold">Location</a>
+            </nav>
+            <a href="book.html" class="bg-[#994127] text-white px-6 py-3 rounded-xl">Book a Table</a>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Left Side: Contact Form -->
+            <div class="bg-white p-8 rounded-3xl shadow-sm">
+                <h1 class="font-['Libre_Caslon_Text'] text-4xl mb-4 text-[#994127]">Get in Touch</h1>
+                <p class="text-gray-600 mb-8">We'd love to hear from you. Send us a message and we'll get back to you shortly.</p>
+                
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Name</label>
+                        <input type="text" placeholder="Your Name" class="w-full border-gray-200 rounded-xl focus:ring-[#994127] focus:border-[#994127]">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Email</label>
+                        <input type="email" placeholder="email@example.com" class="w-full border-gray-200 rounded-xl focus:ring-[#994127] focus:border-[#994127]">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Message</label>
+                        <textarea rows="4" placeholder="How can we help?" class="w-full border-gray-200 rounded-xl focus:ring-[#994127] focus:border-[#994127]"></textarea>
+                    </div>
+                    <button type="button" onclick="alert('Message Sent!')" class="w-full bg-[#994127] text-white py-4 rounded-xl font-bold hover:opacity-90 transition-opacity">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Right Side: Info & Map -->
+            <div class="flex flex-col gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#994127]">location_on</span> Visit Us
+                    </h2>
+                    <p class="text-gray-600">123 Culinary Avenue<br>Flavor District, NY 10001</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-sm">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[#994127]">schedule</span> Opening Hours
+                    </h2>
+                    <p class="text-gray-600">Tue - Sun: 5:00 PM - 11:00 PM<br>Closed on Mondays</p>
+                </div>
+
+                <!-- Simple Map Placeholder -->
+                <div class="bg-gray-200 h-64 rounded-3xl overflow-hidden flex items-center justify-center relative">
+                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover opacity-50">
+                    <span class="relative bg-white px-4 py-2 rounded-full font-bold shadow-md text-sm">View on Google Maps</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-10 border-t border-gray-100 text-gray-400 text-sm">
+        © 2024 Bite Boulevard. All rights reserved.
+    </footer>
+</body>
+</html>
