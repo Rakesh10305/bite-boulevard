@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Book a Table - Bite Boulevard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+</head>
+<body class="bg-[#faf9f6] flex items-center justify-center min-h-screen p-6">
+    <div class="bg-white p-8 rounded-3xl shadow-xl max-w-md w-full">
+        <nav class="mb-6"><a href="index.html" class="text-[#994127]">← Cancel</a></nav>
+        <h1 class="text-3xl font-bold mb-6">Reserve a Table</h1>
+        <form class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium mb-1">Date</label>
+                <input type="date" class="w-full border-gray-300 rounded-xl">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-1">Guests</label>
+                <select class="w-full border-gray-300 rounded-xl">
+                    <option>2 People</option>
+                    <option>4 People</option>
+                    <option>6+ People</option>
+                </select>
+            </div>
+            <button type="button" onclick="alert('Table Reserved!')" class="w-full bg-[#994127] text-white py-4 rounded-xl font-bold">Confirm Booking</button>
+        </form>
+    </div>
+</body>
+</html>
